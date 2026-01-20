@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CK ACCOUNTING SYSTEMS INC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+
+        .logo-text span {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .currency-badge {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            text-align: right;
+        }
+
+        .user-info h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .user-info p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a.active {
+            background-color: var(--secondary-color);
+        }
+
+        .nav-links a i {
+            margin-right: 8px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 25px;
+            padding: 25px 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 15px;
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .sidebar-menu a:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+        }
+
+        .sidebar-menu a.active {
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .sidebar-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Dashboard Content */
+        .dashboard-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .welcome-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+        }
+
+        .welcome-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .welcome-section p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .stats-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background-color: #f8fafc;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stat-card h4 {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .stat-card .trend {
+            font-size: 12px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat-card .trend.positive {
+            color: var(--accent-color);
+        }
+
+        .stat-card .trend.negative {
+            color: var(--danger-color);
+        }
+
+        /* Modules Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .module-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .module-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .module-header h3 {
+            font-size: 20px;
+        }
+
+        .module-body {
+            padding: 20px;
+        }
+
+        .module-body p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .module-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .module-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+        }
+
+        .module-features li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .module-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e40af;
+        }
+
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #cbd5e1;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #0da271;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .nav-links {
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .user-info {
+                text-align: center;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">CK</div>
+                    <div class="logo-text">
+                        <h1>CK ACCOUNTING <span>SYSTEMS INC</span></h1>
+                        <div class="currency-badge">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Reporting Currency: Malawi Kwacha (MWK)
+                        </div>
+                    </div>
+                </div>
+                <div class="user-menu">
+                    <div class="user-info">
+                        <h3>Chikondi Banda</h3>
+                        <p>Small Business Account</p>
+                    </div>
+                    <div class="user-avatar">CB</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> General Ledger</a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Invoicing</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Financial Reports</a></li>
+                <li><a href="#"><i class="fas fa-calculator"></i> Tax Management</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Payroll</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Quick Actions</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="active"><i class="fas fa-plus-circle"></i> New Transaction</a></li>
+                    <li><a href="#"><i class="fas fa-file-import"></i> Import Bank Statement</a></li>
+                    <li><a href="#"><i class="fas fa-chart-pie"></i> Financial Ratios</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale"></i> Reconcile Accounts</a></li>
+                    <li><a href="#"><i class="fas fa-file-export"></i> Export Reports</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+                </ul>
+
+                <h3>Recent Activities</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Bank Reconciliation Complete</a></li>
+                    <li><a href="#"><i class="fas fa-file-invoice"></i> Invoice #0456 Sent</a></li>
+                    <li><a href="#"><i class="fas fa-exclamation-triangle"></i> 3 Transactions Need Review</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Tax Filing Due in 14 Days</a></li>
+                </ul>
+            </aside>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Welcome Section -->
+                <section class="welcome-section">
+                    <h2>Welcome to CK Accounting Systems</h2>
+                    <p>Your complete accounting platform designed for small businesses in Malawi. All calculations are performed in Malawi Kwacha (MWK) and follow double-entry accounting principles with built-in validation.</p>
+                    
+                    <div class="stats-highlight">
+                        <div class="stat-card">
+                            <h4>Assets</h4>
+                            <div class="value">MWK</div>
+                            <div class="trend positive"><i class="fas fa-arrow-up"></i> Balanced with Liabilities + Equity</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Debits = Credits</h4>
+                            <div class="value">Validated</div>
+                            <div class="trend positive"><i class="fas fa-check-circle"></i> All transactions balanced</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Current Ratio</h4>
+                            <div class="value">Calculated</div>
+                            <div class="trend positive"><i class="fas fa-chart-line"></i> Real-time monitoring</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Tax Compliance</h4>
+                            <div class="value">Up to date</div>
+                            <div class="trend positive"><i class="fas fa-shield-alt"></i> Malawi tax regulations</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modules Grid -->
+                <section class="modules-grid">
+                    <!-- General Ledger Module -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <h3>General Ledger</h3>
+                                <p>Double-Entry Accounting Engine</p>
+                            </div>
+                        </div>
+                        <div class="module-body">
+                            <p>Core ledger system implementing the fundamental accounting equation: <strong>Assets = Liabilities + Owner's Equity</strong>. Every transaction validated with debits = credits.</p>
+                            <ul class="module-features">
+                                <li><i class="fas fa-check"></i> Real-time balance updates</li>
+                                <li><i class="fas fa-check"></i> Automated transaction validation</li>
+                                <li><i class="fas fa-check"></i> Audit trail for all entries</li>
+                                <li><i class="fas fa-check"></i> Chart of accounts manager</li>
+                            </ul>
+                            <div class="module-actions">
+                                <button class="btn btn-primary"><i class="fas fa-plus"></i> New Entry</button>
+                                <button class="btn btn-secondary"><i class="fas fa-search"></i> View Ledger</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Reports Module -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3>Financial Reports</h3>
+                                <p>Automated Statement Generation</p>
+                            </div>
+                        </div>
+                        <div class="module-body">
+                            <p>Generate income statements, balance sheets, and cash flow statements with built-in formulas for profitability, liquidity, and efficiency ratios.</p>
+                            <ul class="module-features">
+                                <li><i class="fas fa-check"></i> Income statement with gross/net profit</li>
+                                <li><i class="fas fa-check"></i> Balance sheet with working capital</li>
+                                <li><i class="fas fa-check"></i> Cash flow statement (direct/indirect)</li>
+                                <li><i class="fas fa-check"></i> Ratio analysis dashboard</li>
+                            </ul>
+                            <div class="module-actions">
+                                <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> Generate Reports</button>
+                                <button class="btn btn-secondary"><i class="fas fa-chart-bar"></i> View Analytics</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tax Management Module -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div>
+                                <h3>Tax Management</h3>
+                                <p>Malawi Tax Compliance</p>
+                            </div>
+                        </div>
+                        <div class="module-body">
+                            <p>Calculate tax liabilities, taxable income, and effective tax rates following Malawi tax regulations. Automated deductions and reporting.</p>
+                            <ul class="module-features">
+                                <li><i class="fas fa-check"></i> Taxable income calculations</li>
+                                <li><i class="fas fa-check"></i> Malawi-specific tax rates</li>
+                                <li><i class="fas fa-check"></i> Tax liability estimations</li>
+                                <li><i class="fas fa-check"></i> Filing deadline reminders</li>
+                            </ul>
+                            <div class="module-actions">
+                                <button class="btn btn-primary"><i class="fas fa-receipt"></i> Calculate Tax</button>
+                                <button class="btn btn-secondary"><i class="fas fa-calendar-alt"></i> Tax Calendar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inventory & COGS Module -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div>
+                                <h3>Inventory & COGS</h3>
+                                <p>Cost of Goods Sold Tracking</p>
+                            </div>
+                        </div>
+                        <div class="module-body">
+                            <p>Track inventory, calculate COGS, and analyze inventory turnover with automated calculations for better cost management.</p>
+                            <ul class="module-features">
+                                <li><i class="fas fa-check"></i> COGS = Beginning + Purchases - Ending</li>
+                                <li><i class="fas fa-check"></i> Inventory turnover ratio</li>
+                                <li><i class="fas fa-check"></i> Average inventory calculations</li>
+                                <li><i class="fas fa-check"></i> Stock level alerts</li>
+                            </ul>
+                            <div class="module-actions">
+                                <button class="btn btn-primary"><i class="fas fa-warehouse"></i> Manage Inventory</button>
+                                <button class="btn btn-secondary"><i class="fas fa-chart-pie"></i> Cost Analysis</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payroll Module -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h3>Payroll Management</h3>
+                                <p>Employee Compensation & Deductions</p>
+                            </div>
+                        </div>
+                        <div class="module-body">
+                            <p>Calculate net pay, tax withholdings, social security, and other deductions. Handle overtime and benefits in Malawi Kwacha.</p>
+                            <ul class="module-features">
+                                <li><i class="fas fa-check"></i> Net pay = Gross pay - deductions</li>
+                                <li><i class="fas fa-check"></i> Overtime calculations</li>
+                                <li><i class="fas fa-check"></i> Statutory deductions</li>
+                                <li><i class="fas fa-check"></i> Payroll tax compliance</li>
+                            </ul>
+                            <div class="module-actions">
+                                <button class="btn btn-primary"><i class="fas fa-money-check-alt"></i> Process Payroll</button>
+                                <button class="btn btn-secondary"><i class="fas fa-user-clock"></i> Time Tracking</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Budget & Forecast Module -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div>
+                            <div>
+                                <h3>Budget & Forecast</h3>
+                                <p>Planning & Variance Analysis</p>
+                            </div>
+                        </div>
+                        <div class="module-body">
+                            <p>Create budgets, forecast financial performance, and analyze variances between actual and budgeted amounts.</p>
+                            <ul class="module-features">
+                                <li><i class="fas fa-check"></i> Budget vs. actual analysis</li>
+                                <li><i class="fas fa-check"></i> Variance percentage calculations</li>
+                                <li><i class="fas fa-check"></i> Growth-based forecasting</li>
+                                <li><i class="fas fa-check"></i> Customizable budget templates</li>
+                            </ul>
+                            <div class="module-actions">
+                                <button class="btn btn-primary"><i class="fas fa-bullseye"></i> Set Budget</button>
+                                <button class="btn btn-secondary"><i class="fas fa-project-diagram"></i> Forecast</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CK ACCOUNTING SYSTEMS INC</h3>
+                    <p>Professional accounting platform designed specifically for small businesses in Malawi. All calculations in Malawi Kwacha with full compliance to local regulations.</p>
+                    <div class="currency-badge" style="margin-top: 15px;">
+                        <i class="fas fa-globe-africa"></i>
+                        Optimized for Malawi Business Environment
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Core Features</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Double-Entry Accounting</a></li>
+                        <li><a href="#">Financial Statement Generation</a></li>
+                        <li><a href="#">Tax Calculations (Malawi)</a></li>
+                        <li><a href="#">Inventory & COGS Tracking</a></li>
+                        <li><a href="#">Payroll Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Malawi Tax Guide</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Security & Compliance</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Audit Trail Logging</a></li>
+                        <li><a href="#">Data Encryption</a></li>
+                        <li><a href="#">Role-Based Access Control</a></li>
+                        <li><a href="#">Server-Side Validation</a></li>
+                        <li><a href="#">Formula Version Control</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CK ACCOUNTING SYSTEMS INC. All rights reserved. All financial calculations performed in Malawi Kwacha (MWK).</p>
+                <p style="margin-top: 10px; font-size: 12px;">This platform implements fundamental accounting equations, double-entry validation, and financial formulas with server-side processing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add active state to clicked nav items
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Add active state to sidebar items
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    sidebarLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Module card button interactions
+            const primaryButtons = document.querySelectorAll('.btn-primary');
+            primaryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const moduleTitle = this.closest('.module-card').querySelector('h3').textContent;
+                    alert(`Opening ${moduleTitle} module...`);
+                });
+            });
+
+            // Currency display
+            const currencyBadge = document.querySelector('.currency-badge');
+            currencyBadge.addEventListener('click', function() {
+                alert('All financial calculations in this platform are performed using Malawi Kwacha (MWK) as the reporting currency. Exchange rate features available for multi-currency transactions.');
+            });
+        });
+    </script>
+</body>
+</html>
