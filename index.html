@@ -128,6 +128,7 @@
             justify-content: center;
             font-weight: bold;
             font-size: 18px;
+            cursor: pointer;
         }
 
         /* Navigation */
@@ -165,6 +166,37 @@
 
         .nav-links a i {
             margin-right: 8px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            z-index: 1000;
+            display: none;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark-color);
+            padding: 12px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f5f9;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .user-menu:hover .dropdown-menu {
+            display: block;
         }
 
         /* Main Content */
@@ -291,6 +323,14 @@
             color: var(--danger-color);
         }
 
+        /* Action Buttons Row */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
         /* Modules Grid */
         .modules-grid {
             display: grid;
@@ -364,6 +404,7 @@
         .module-actions {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -404,6 +445,196 @@
 
         .btn-accent:hover {
             background-color: #0da271;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #d97706;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 22px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .data-table th {
+            background-color: #f1f5f9;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark-color);
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .data-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .table-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .table-btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .table-btn-edit {
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+        }
+
+        .table-btn-delete {
+            background-color: #fee2e2;
+            color: var(--danger-color);
+        }
+
+        .table-btn-approve {
+            background-color: #d1fae5;
+            color: var(--accent-color);
+        }
+
+        /* Accounting Lines */
+        .accounting-lines {
+            margin-top: 20px;
+        }
+
+        .line-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr auto;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: #f8fafc;
+            border-radius: var(--border-radius);
+            align-items: center;
+        }
+
+        .add-line-btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Pending Approvals */
+        .approval-badge {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         /* Footer */
@@ -466,6 +697,15 @@
             .nav-links {
                 overflow-x: auto;
             }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .line-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -481,6 +721,14 @@
             
             .modules-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .table-actions {
+                flex-direction: column;
             }
         }
     </style>
@@ -503,9 +751,17 @@
                 <div class="user-menu">
                     <div class="user-info">
                         <h3>Chikondi Banda</h3>
-                        <p>Small Business Account</p>
+                        <p>Administrator</p>
                     </div>
                     <div class="user-avatar">CB</div>
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Account Settings</a>
+                        <a href="#" id="clientPortalBtn"><i class="fas fa-user-friends"></i> Client Portal</a>
+                        <a href="#" id="registerUserBtn"><i class="fas fa-user-plus"></i> Register New User</a>
+                        <a href="#" id="manageClientsBtn"><i class="fas fa-address-book"></i> Manage Clients</a>
+                        <a href="#" style="color: var(--danger-color);"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -521,6 +777,7 @@
                 <li><a href="#"><i class="fas fa-chart-line"></i> Financial Reports</a></li>
                 <li><a href="#"><i class="fas fa-calculator"></i> Tax Management</a></li>
                 <li><a href="#"><i class="fas fa-users"></i> Payroll</a></li>
+                <li><a href="#" id="approvalsBtn"><i class="fas fa-check-double"></i> Approvals <span class="approval-badge">3</span></a></li>
                 <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
             </ul>
         </div>
@@ -533,10 +790,12 @@
             <aside class="sidebar">
                 <h3>Quick Actions</h3>
                 <ul class="sidebar-menu">
-                    <li><a href="#" class="active"><i class="fas fa-plus-circle"></i> New Transaction</a></li>
+                    <li><a href="#" class="active" id="newTransactionBtn"><i class="fas fa-plus-circle"></i> New Transaction</a></li>
+                    <li><a href="#" id="addClientBtn"><i class="fas fa-user-plus"></i> Add New Client</a></li>
                     <li><a href="#"><i class="fas fa-file-import"></i> Import Bank Statement</a></li>
                     <li><a href="#"><i class="fas fa-chart-pie"></i> Financial Ratios</a></li>
                     <li><a href="#"><i class="fas fa-balance-scale"></i> Reconcile Accounts</a></li>
+                    <li><a href="#" id="pendingApprovalsBtn"><i class="fas fa-clock"></i> Pending Approvals <span class="approval-badge">3</span></a></li>
                     <li><a href="#"><i class="fas fa-file-export"></i> Export Reports</a></li>
                     <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
                 </ul>
@@ -545,8 +804,9 @@
                 <ul class="sidebar-menu">
                     <li><a href="#"><i class="fas fa-check-circle"></i> Bank Reconciliation Complete</a></li>
                     <li><a href="#"><i class="fas fa-file-invoice"></i> Invoice #0456 Sent</a></li>
-                    <li><a href="#"><i class="fas fa-exclamation-triangle"></i> 3 Transactions Need Review</a></li>
+                    <li><a href="#"><i class="fas fa-exclamation-triangle"></i> 3 Transactions Need Approval</a></li>
                     <li><a href="#"><i class="fas fa-calendar-alt"></i> Tax Filing Due in 14 Days</a></li>
+                    <li><a href="#"><i class="fas fa-user-check"></i> 2 New Clients Added</a></li>
                 </ul>
             </aside>
 
@@ -557,31 +817,46 @@
                     <h2>Welcome to CK Accounting Systems</h2>
                     <p>Your complete accounting platform designed for small businesses in Malawi. All calculations are performed in Malawi Kwacha (MWK) and follow double-entry accounting principles with built-in validation.</p>
                     
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="quickTransactionBtn">
+                            <i class="fas fa-plus-circle"></i> Create New Transaction
+                        </button>
+                        <button class="btn btn-accent" id="quickClientBtn">
+                            <i class="fas fa-user-plus"></i> Add New Client
+                        </button>
+                        <button class="btn btn-warning" id="viewApprovalsBtn">
+                            <i class="fas fa-check-double"></i> Review Pending Approvals (3)
+                        </button>
+                        <button class="btn btn-secondary" id="manageUsersBtn">
+                            <i class="fas fa-users-cog"></i> Manage Users
+                        </button>
+                    </div>
+                    
                     <div class="stats-highlight">
                         <div class="stat-card">
-                            <h4>Assets</h4>
-                            <div class="value">MWK</div>
-                            <div class="trend positive"><i class="fas fa-arrow-up"></i> Balanced with Liabilities + Equity</div>
+                            <h4>Assets = Liabilities + Equity</h4>
+                            <div class="value">Balanced</div>
+                            <div class="trend positive"><i class="fas fa-check-circle"></i> System Validated</div>
                         </div>
                         <div class="stat-card">
-                            <h4>Debits = Credits</h4>
-                            <div class="value">Validated</div>
-                            <div class="trend positive"><i class="fas fa-check-circle"></i> All transactions balanced</div>
+                            <h4>Pending Approvals</h4>
+                            <div class="value">3 Items</div>
+                            <div class="trend negative"><i class="fas fa-clock"></i> Need Attention</div>
                         </div>
                         <div class="stat-card">
-                            <h4>Current Ratio</h4>
-                            <div class="value">Calculated</div>
-                            <div class="trend positive"><i class="fas fa-chart-line"></i> Real-time monitoring</div>
+                            <h4>Active Clients</h4>
+                            <div class="value">12 Accounts</div>
+                            <div class="trend positive"><i class="fas fa-user-check"></i> 2 New This Month</div>
                         </div>
                         <div class="stat-card">
-                            <h4>Tax Compliance</h4>
-                            <div class="value">Up to date</div>
-                            <div class="trend positive"><i class="fas fa-shield-alt"></i> Malawi tax regulations</div>
+                            <h4>System Users</h4>
+                            <div class="value">8 Users</div>
+                            <div class="trend positive"><i class="fas fa-user-shield"></i> Role-Based Access</div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Modules Grid -->
+                <!-- Enhanced Modules Grid -->
                 <section class="modules-grid">
                     <!-- General Ledger Module -->
                     <div class="module-card">
@@ -595,150 +870,473 @@
                             </div>
                         </div>
                         <div class="module-body">
-                            <p>Core ledger system implementing the fundamental accounting equation: <strong>Assets = Liabilities + Owner's Equity</strong>. Every transaction validated with debits = credits.</p>
+                            <p>Core ledger system implementing the fundamental accounting equation. Full transaction management with add/delete lines and approval workflow.</p>
                             <ul class="module-features">
-                                <li><i class="fas fa-check"></i> Real-time balance updates</li>
-                                <li><i class="fas fa-check"></i> Automated transaction validation</li>
-                                <li><i class="fas fa-check"></i> Audit trail for all entries</li>
-                                <li><i class="fas fa-check"></i> Chart of accounts manager</li>
+                                <li><i class="fas fa-check"></i> Add/Delete accounting lines</li>
+                                <li><i class="fas fa-check"></i> Approval workflow for transactions</li>
+                                <li><i class="fas fa-check"></i> Debit = Credit validation</li>
+                                <li><i class="fas fa-check"></i> Audit trail with user tracking</li>
                             </ul>
                             <div class="module-actions">
-                                <button class="btn btn-primary"><i class="fas fa-plus"></i> New Entry</button>
+                                <button class="btn btn-primary" id="ledgerEntryBtn"><i class="fas fa-plus"></i> New Entry</button>
                                 <button class="btn btn-secondary"><i class="fas fa-search"></i> View Ledger</button>
+                                <button class="btn btn-warning"><i class="fas fa-history"></i> Audit Trail</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Financial Reports Module -->
+                    <!-- Client Management Module -->
                     <div class="module-card">
                         <div class="module-header">
                             <div class="module-icon">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fas fa-user-friends"></i>
                             </div>
                             <div>
-                                <h3>Financial Reports</h3>
-                                <p>Automated Statement Generation</p>
+                                <h3>Client Management</h3>
+                                <p>Client Portal & User Registration</p>
                             </div>
                         </div>
                         <div class="module-body">
-                            <p>Generate income statements, balance sheets, and cash flow statements with built-in formulas for profitability, liquidity, and efficiency ratios.</p>
+                            <p>Register new clients, manage client portals, and control user access with role-based permissions for secure multi-user environment.</p>
                             <ul class="module-features">
-                                <li><i class="fas fa-check"></i> Income statement with gross/net profit</li>
-                                <li><i class="fas fa-check"></i> Balance sheet with working capital</li>
-                                <li><i class="fas fa-check"></i> Cash flow statement (direct/indirect)</li>
-                                <li><i class="fas fa-check"></i> Ratio analysis dashboard</li>
+                                <li><i class="fas fa-check"></i> Client registration portal</li>
+                                <li><i class="fas fa-check"></i> User role management</li>
+                                <li><i class="fas fa-check"></i> Client-specific dashboards</li>
+                                <li><i class="fas fa-check"></i> Secure access controls</li>
                             </ul>
                             <div class="module-actions">
-                                <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> Generate Reports</button>
-                                <button class="btn btn-secondary"><i class="fas fa-chart-bar"></i> View Analytics</button>
+                                <button class="btn btn-primary" id="registerClientBtn"><i class="fas fa-user-plus"></i> Add Client</button>
+                                <button class="btn btn-accent" id="clientPortalAccessBtn"><i class="fas fa-portal-exit"></i> Client Portal</button>
+                                <button class="btn btn-secondary"><i class="fas fa-users-cog"></i> Manage Users</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tax Management Module -->
+                    <!-- Approvals & Workflow Module -->
                     <div class="module-card">
                         <div class="module-header">
                             <div class="module-icon">
-                                <i class="fas fa-calculator"></i>
+                                <i class="fas fa-check-double"></i>
                             </div>
                             <div>
-                                <h3>Tax Management</h3>
-                                <p>Malawi Tax Compliance</p>
+                                <h3>Approvals & Workflow</h3>
+                                <p>Transaction Review & Authorization</p>
                             </div>
                         </div>
                         <div class="module-body">
-                            <p>Calculate tax liabilities, taxable income, and effective tax rates following Malawi tax regulations. Automated deductions and reporting.</p>
+                            <p>Multi-level approval system for transactions, journal entries, and client requests. Track pending items and maintain audit compliance.</p>
                             <ul class="module-features">
-                                <li><i class="fas fa-check"></i> Taxable income calculations</li>
-                                <li><i class="fas fa-check"></i> Malawi-specific tax rates</li>
-                                <li><i class="fas fa-check"></i> Tax liability estimations</li>
-                                <li><i class="fas fa-check"></i> Filing deadline reminders</li>
+                                <li><i class="fas fa-check"></i> Multi-level approval workflow</li>
+                                <li><i class="fas fa-check"></i> Pending approvals dashboard</li>
+                                <li><i class="fas fa-check"></i> Approval history tracking</li>
+                                <li><i class="fas fa-check"></i> Email notifications</li>
                             </ul>
                             <div class="module-actions">
-                                <button class="btn btn-primary"><i class="fas fa-receipt"></i> Calculate Tax</button>
-                                <button class="btn btn-secondary"><i class="fas fa-calendar-alt"></i> Tax Calendar</button>
+                                <button class="btn btn-warning" id="viewPendingApprovalsBtn"><i class="fas fa-clock"></i> Pending (3)</button>
+                                <button class="btn btn-secondary"><i class="fas fa-history"></i> Approval History</button>
+                                <button class="btn btn-primary"><i class="fas fa-cog"></i> Workflow Settings</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Inventory & COGS Module -->
+                    <!-- Transaction Management Module -->
                     <div class="module-card">
                         <div class="module-header">
                             <div class="module-icon">
-                                <i class="fas fa-boxes"></i>
+                                <i class="fas fa-exchange-alt"></i>
                             </div>
                             <div>
-                                <h3>Inventory & COGS</h3>
-                                <p>Cost of Goods Sold Tracking</p>
+                                <h3>Transaction Management</h3>
+                                <p>Complete Transaction Lifecycle</p>
                             </div>
                         </div>
                         <div class="module-body">
-                            <p>Track inventory, calculate COGS, and analyze inventory turnover with automated calculations for better cost management.</p>
+                            <p>Create, edit, approve, and delete transactions with full audit trail. Support for adding/deleting accounting lines with validation.</p>
                             <ul class="module-features">
-                                <li><i class="fas fa-check"></i> COGS = Beginning + Purchases - Ending</li>
-                                <li><i class="fas fa-check"></i> Inventory turnover ratio</li>
-                                <li><i class="fas fa-check"></i> Average inventory calculations</li>
-                                <li><i class="fas fa-check"></i> Stock level alerts</li>
+                                <li><i class="fas fa-check"></i> Add/delete transaction lines</li>
+                                <li><i class="fas fa-check"></i> Deletion with approval requirement</li>
+                                <li><i class="fas fa-check"></i> Full audit trail logging</li>
+                                <li><i class="fas fa-check"></i> Reversal transaction capability</li>
                             </ul>
                             <div class="module-actions">
-                                <button class="btn btn-primary"><i class="fas fa-warehouse"></i> Manage Inventory</button>
-                                <button class="btn btn-secondary"><i class="fas fa-chart-pie"></i> Cost Analysis</button>
+                                <button class="btn btn-primary" id="createTransactionBtn"><i class="fas fa-plus"></i> New Transaction</button>
+                                <button class="btn btn-secondary"><i class="fas fa-edit"></i> Edit Transactions</button>
+                                <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete (with approval)</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Payroll Module -->
+                    <!-- User Registration Module -->
                     <div class="module-card">
                         <div class="module-header">
                             <div class="module-icon">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-user-plus"></i>
                             </div>
                             <div>
-                                <h3>Payroll Management</h3>
-                                <p>Employee Compensation & Deductions</p>
+                                <h3>User Registration</h3>
+                                <p>Multi-User Account Management</p>
                             </div>
                         </div>
                         <div class="module-body">
-                            <p>Calculate net pay, tax withholdings, social security, and other deductions. Handle overtime and benefits in Malawi Kwacha.</p>
+                            <p>Register new users, assign roles and permissions, and manage access to accounting functions based on user hierarchy.</p>
                             <ul class="module-features">
-                                <li><i class="fas fa-check"></i> Net pay = Gross pay - deductions</li>
-                                <li><i class="fas fa-check"></i> Overtime calculations</li>
-                                <li><i class="fas fa-check"></i> Statutory deductions</li>
-                                <li><i class="fas fa-check"></i> Payroll tax compliance</li>
+                                <li><i class="fas fa-check"></i> New user registration portal</li>
+                                <li><i class="fas fa-check"></i> Role-based permissions</li>
+                                <li><i class="fas fa-check"></i> User activity monitoring</li>
+                                <li><i class="fas fa-check"></i> Access level controls</li>
                             </ul>
                             <div class="module-actions">
-                                <button class="btn btn-primary"><i class="fas fa-money-check-alt"></i> Process Payroll</button>
-                                <button class="btn btn-secondary"><i class="fas fa-user-clock"></i> Time Tracking</button>
+                                <button class="btn btn-primary" id="registerNewUserBtn"><i class="fas fa-user-plus"></i> Register User</button>
+                                <button class="btn btn-accent"><i class="fas fa-user-shield"></i> Manage Permissions</button>
+                                <button class="btn btn-secondary"><i class="fas fa-user-clock"></i> User Activity</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Budget & Forecast Module -->
+                    <!-- Audit & Deletion Log Module -->
                     <div class="module-card">
                         <div class="module-header">
                             <div class="module-icon">
-                                <i class="fas fa-chart-area"></i>
+                                <i class="fas fa-clipboard-list"></i>
                             </div>
                             <div>
-                                <h3>Budget & Forecast</h3>
-                                <p>Planning & Variance Analysis</p>
+                                <h3>Audit & Deletion Log</h3>
+                                <p>Complete Transaction History</p>
                             </div>
                         </div>
                         <div class="module-body">
-                            <p>Create budgets, forecast financial performance, and analyze variances between actual and budgeted amounts.</p>
+                            <p>Track all transactions, modifications, and deletions with full audit trail. All deletions require approval and are logged for compliance.</p>
                             <ul class="module-features">
-                                <li><i class="fas fa-check"></i> Budget vs. actual analysis</li>
-                                <li><i class="fas fa-check"></i> Variance percentage calculations</li>
-                                <li><i class="fas fa-check"></i> Growth-based forecasting</li>
-                                <li><i class="fas fa-check"></i> Customizable budget templates</li>
+                                <li><i class="fas fa-check"></i> Complete audit trail</li>
+                                <li><i class="fas fa-check"></i> Deletion approval workflow</li>
+                                <li><i class="fas fa-check"></i> User action logging</li>
+                                <li><i class="fas fa-check"></i> Compliance reporting</li>
                             </ul>
                             <div class="module-actions">
-                                <button class="btn btn-primary"><i class="fas fa-bullseye"></i> Set Budget</button>
-                                <button class="btn btn-secondary"><i class="fas fa-project-diagram"></i> Forecast</button>
+                                <button class="btn btn-primary"><i class="fas fa-history"></i> View Audit Trail</button>
+                                <button class="btn btn-warning"><i class="fas fa-trash-restore"></i> Deletion Log</button>
+                                <button class="btn btn-secondary"><i class="fas fa-file-contract"></i> Compliance Reports</button>
                             </div>
                         </div>
                     </div>
                 </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- New Transaction Modal -->
+    <div class="modal" id="transactionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Transaction</h3>
+                <button class="close-modal" id="closeTransactionModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="transactionForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="transactionDate">Transaction Date</label>
+                            <input type="date" id="transactionDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="transactionType">Transaction Type</label>
+                            <select id="transactionType" class="form-control" required>
+                                <option value="">Select Type</option>
+                                <option value="sales">Sales Invoice</option>
+                                <option value="purchase">Purchase</option>
+                                <option value="payment">Payment</option>
+                                <option value="receipt">Receipt</option>
+                                <option value="journal">Journal Entry</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionDescription">Description</label>
+                        <input type="text" id="transactionDescription" class="form-control" placeholder="Enter transaction description" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Accounting Lines <span style="color: var(--accent-color); font-weight: normal;">(Debits must equal Credits)</span></label>
+                        <div class="accounting-lines" id="accountingLinesContainer">
+                            <div class="line-item">
+                                <select class="form-control">
+                                    <option>Select Account</option>
+                                    <option>Cash - MWK</option>
+                                    <option>Accounts Receivable</option>
+                                    <option>Inventory</option>
+                                    <option>Office Equipment</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="Description">
+                                <input type="number" class="form-control" placeholder="Debit (MWK)" step="0.01">
+                                <input type="number" class="form-control" placeholder="Credit (MWK)" step="0.01">
+                                <button type="button" class="btn btn-danger table-btn" onclick="removeLine(this)"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary add-line-btn" onclick="addAccountingLine()">
+                            <i class="fas fa-plus"></i> Add Accounting Line
+                        </button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="totalDebit">Total Debit (MWK)</label>
+                        <input type="text" id="totalDebit" class="form-control" value="0.00" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="totalCredit">Total Credit (MWK)</label>
+                        <input type="text" id="totalCredit" class="form-control" value="0.00" readonly>
+                    </div>
+                    
+                    <div class="form-group" id="validationMessage" style="display: none;">
+                        <div style="padding: 10px; background-color: #fee2e2; color: var(--danger-color); border-radius: var(--border-radius);">
+                            <i class="fas fa-exclamation-triangle"></i> Debits must equal Credits for transaction to be valid.
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requiresApproval">Requires Approval</label>
+                        <select id="requiresApproval" class="form-control">
+                            <option value="no">No - Post Immediately</option>
+                            <option value="yes">Yes - Send for Approval</option>
+                        </select>
+                    </div>
+                    
+                    <div class="action-buttons" style="margin-top: 30px;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-check-circle"></i> Save Transaction
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelTransaction">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Register New User</h3>
+                <button class="close-modal" id="closeRegistrationModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userRole">User Role</label>
+                        <select id="userRole" class="form-control" required>
+                            <option value="">Select Role</option>
+                            <option value="administrator">Administrator</option>
+                            <option value="accountant">Accountant</option>
+                            <option value="manager">Manager</option>
+                            <option value="client">Client User</option>
+                            <option value="viewer">Viewer (Read Only)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientAccess">Client Access (if applicable)</label>
+                        <select id="clientAccess" class="form-control">
+                            <option value="">No Client Restriction</option>
+                            <option value="client1">Banda Enterprises</option>
+                            <option value="client2">Mlombwa Ltd</option>
+                            <option value="client3">Kadzakaluma Stores</option>
+                            <option value="client4">Mkandawire Farms</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="permissions">Permissions</label>
+                        <div style="background-color: #f8fafc; padding: 15px; border-radius: var(--border-radius);">
+                            <div style="margin-bottom: 10px;">
+                                <input type="checkbox" id="permTransactions" checked>
+                                <label for="permTransactions">Create/Edit Transactions</label>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <input type="checkbox" id="permApprove">
+                                <label for="permApprove">Approve Transactions</label>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <input type="checkbox" id="permDelete">
+                                <label for="permDelete">Delete Transactions (with approval)</label>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <input type="checkbox" id="permReports">
+                                <label for="permReports">Generate Reports</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="permClientMgmt">
+                                <label for="permClientMgmt">Client Management</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons" style="margin-top: 30px;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Register User
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelRegistration">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Registration Modal -->
+    <div class="modal" id="clientModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Client</h3>
+                <button class="close-modal" id="closeClientModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="clientForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clientName">Client Name</label>
+                            <input type="text" id="clientName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="businessType">Business Type</label>
+                            <select id="businessType" class="form-control" required>
+                                <option value="">Select Type</option>
+                                <option value="retail">Retail</option>
+                                <option value="service">Service Provider</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="agriculture">Agriculture</option>
+                                <option value="construction">Construction</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientEmail">Email Address</label>
+                        <input type="email" id="clientEmail" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientPhone">Phone Number</label>
+                        <input type="tel" id="clientPhone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientAddress">Business Address</label>
+                        <textarea id="clientAddress" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taxId">Tax ID (Malawi)</label>
+                        <input type="text" id="taxId" class="form-control" placeholder="e.g., MW-TIN-XXXXXXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientPortalAccess">Client Portal Access</label>
+                        <select id="clientPortalAccess" class="form-control">
+                            <option value="enabled">Enable Client Portal Access</option>
+                            <option value="disabled">No Portal Access (Admin Only)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="action-buttons" style="margin-top: 30px;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Client
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelClient">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approvals Modal -->
+    <div class="modal" id="approvalsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Pending Approvals</h3>
+                <button class="close-modal" id="closeApprovalsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>The following items require your approval:</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Amount (MWK)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-10-15</td>
+                            <td>Office Equipment Purchase</td>
+                            <td>Journal Entry</td>
+                            <td>450,000</td>
+                            <td class="table-actions">
+                                <button class="table-btn table-btn-approve"><i class="fas fa-check"></i> Approve</button>
+                                <button class="table-btn table-btn-edit"><i class="fas fa-eye"></i> View</button>
+                                <button class="table-btn table-btn-delete"><i class="fas fa-times"></i> Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2023-10-14</td>
+                            <td>Client Invoice Adjustment</td>
+                            <td>Sales Invoice</td>
+                            <td>125,000</td>
+                            <td class="table-actions">
+                                <button class="table-btn table-btn-approve"><i class="fas fa-check"></i> Approve</button>
+                                <button class="table-btn table-btn-edit"><i class="fas fa-eye"></i> View</button>
+                                <button class="table-btn table-btn-delete"><i class="fas fa-times"></i> Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2023-10-13</td>
+                            <td>Transaction Deletion Request</td>
+                            <td>Deletion</td>
+                            <td>75,000</td>
+                            <td class="table-actions">
+                                <button class="table-btn table-btn-approve"><i class="fas fa-check"></i> Approve</button>
+                                <button class="table-btn table-btn-edit"><i class="fas fa-eye"></i> View</button>
+                                <button class="table-btn table-btn-delete"><i class="fas fa-times"></i> Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="action-buttons" style="margin-top: 30px;">
+                    <button class="btn btn-accent" id="approveAllBtn">
+                        <i class="fas fa-check-double"></i> Approve All
+                    </button>
+                    <button class="btn btn-secondary" id="closeApprovalsBtn">
+                        Close
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -756,79 +1354,267 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Core Features</h3>
+                    <h3>Enhanced Features</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Double-Entry Accounting</a></li>
-                        <li><a href="#">Financial Statement Generation</a></li>
-                        <li><a href="#">Tax Calculations (Malawi)</a></li>
-                        <li><a href="#">Inventory & COGS Tracking</a></li>
-                        <li><a href="#">Payroll Management</a></li>
+                        <li><a href="#">User Registration & Management</a></li>
+                        <li><a href="#">Client Portal Access</a></li>
+                        <li><a href="#">Transaction Approval Workflow</a></li>
+                        <li><a href="#">Add/Delete Accounting Lines</a></li>
+                        <li><a href="#">Audit Trail & Deletion Log</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Support</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Video Tutorials</a></li>
-                        <li><a href="#">Malawi Tax Guide</a></li>
+                        <li><a href="#">User Registration Guide</a></li>
+                        <li><a href="#">Client Portal Setup</a></li>
+                        <li><a href="#">Approval Workflow Tutorial</a></li>
+                        <li><a href="#">Transaction Management</a></li>
                         <li><a href="#">Contact Support</a></li>
-                        <li><a href="#">System Status</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Security & Compliance</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Audit Trail Logging</a></li>
-                        <li><a href="#">Data Encryption</a></li>
-                        <li><a href="#">Role-Based Access Control</a></li>
-                        <li><a href="#">Server-Side Validation</a></li>
-                        <li><a href="#">Formula Version Control</a></li>
+                        <li><a href="#">User Role Management</a></li>
+                        <li><a href="#">Approval Authorization</a></li>
+                        <li><a href="#">Deletion Approval Workflow</a></li>
+                        <li><a href="#">Client Data Isolation</a></li>
+                        <li><a href="#">Audit Compliance Reporting</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2023 CK ACCOUNTING SYSTEMS INC. All rights reserved. All financial calculations performed in Malawi Kwacha (MWK).</p>
-                <p style="margin-top: 10px; font-size: 12px;">This platform implements fundamental accounting equations, double-entry validation, and financial formulas with server-side processing.</p>
+                <p style="margin-top: 10px; font-size: 12px;">Enhanced platform with user registration, client portal, approval workflow, and transaction management with add/delete capabilities.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple JavaScript for interactive elements
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add active state to clicked nav items
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    navLinks.forEach(item => item.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
+        // Enhanced JavaScript with all new functionality
 
-            // Add active state to sidebar items
-            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    sidebarLinks.forEach(item => item.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
+        // Modal Elements
+        const transactionModal = document.getElementById('transactionModal');
+        const registrationModal = document.getElementById('registrationModal');
+        const clientModal = document.getElementById('clientModal');
+        const approvalsModal = document.getElementById('approvalsModal');
+        
+        // Modal Open Triggers
+        document.getElementById('newTransactionBtn').addEventListener('click', () => openModal(transactionModal));
+        document.getElementById('quickTransactionBtn').addEventListener('click', () => openModal(transactionModal));
+        document.getElementById('createTransactionBtn').addEventListener('click', () => openModal(transactionModal));
+        document.getElementById('ledgerEntryBtn').addEventListener('click', () => openModal(transactionModal));
+        
+        document.getElementById('registerUserBtn').addEventListener('click', () => openModal(registrationModal));
+        document.getElementById('registerNewUserBtn').addEventListener('click', () => openModal(registrationModal));
+        document.getElementById('manageUsersBtn').addEventListener('click', () => openModal(registrationModal));
+        
+        document.getElementById('addClientBtn').addEventListener('click', () => openModal(clientModal));
+        document.getElementById('quickClientBtn').addEventListener('click', () => openModal(clientModal));
+        document.getElementById('registerClientBtn').addEventListener('click', () => openModal(clientModal));
+        document.getElementById('manageClientsBtn').addEventListener('click', () => openModal(clientModal));
+        
+        document.getElementById('approvalsBtn').addEventListener('click', () => openModal(approvalsModal));
+        document.getElementById('viewApprovalsBtn').addEventListener('click', () => openModal(approvalsModal));
+        document.getElementById('viewPendingApprovalsBtn').addEventListener('click', () => openModal(approvalsModal));
+        document.getElementById('pendingApprovalsBtn').addEventListener('click', () => openModal(approvalsModal));
+        
+        document.getElementById('clientPortalBtn').addEventListener('click', () => {
+            alert('Client Portal Access: This feature allows clients to view their financial reports, invoices, and make limited entries based on their permissions.');
+        });
+        
+        document.getElementById('clientPortalAccessBtn').addEventListener('click', () => {
+            alert('Client Portal Management: Configure client access levels and portal customization.');
+        });
 
-            // Module card button interactions
-            const primaryButtons = document.querySelectorAll('.btn-primary');
-            primaryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const moduleTitle = this.closest('.module-card').querySelector('h3').textContent;
-                    alert(`Opening ${moduleTitle} module...`);
-                });
-            });
+        // Modal Close Triggers
+        document.getElementById('closeTransactionModal').addEventListener('click', () => closeModal(transactionModal));
+        document.getElementById('cancelTransaction').addEventListener('click', () => closeModal(transactionModal));
+        
+        document.getElementById('closeRegistrationModal').addEventListener('click', () => closeModal(registrationModal));
+        document.getElementById('cancelRegistration').addEventListener('click', () => closeModal(registrationModal));
+        
+        document.getElementById('closeClientModal').addEventListener('click', () => closeModal(clientModal));
+        document.getElementById('cancelClient').addEventListener('click', () => closeModal(clientModal));
+        
+        document.getElementById('closeApprovalsModal').addEventListener('click', () => closeModal(approvalsModal));
+        document.getElementById('closeApprovalsBtn').addEventListener('click', () => closeModal(approvalsModal));
 
-            // Currency display
-            const currencyBadge = document.querySelector('.currency-badge');
-            currencyBadge.addEventListener('click', function() {
-                alert('All financial calculations in this platform are performed using Malawi Kwacha (MWK) as the reporting currency. Exchange rate features available for multi-currency transactions.');
+        // Modal Functions
+        function openModal(modal) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === transactionModal) closeModal(transactionModal);
+            if (e.target === registrationModal) closeModal(registrationModal);
+            if (e.target === clientModal) closeModal(clientModal);
+            if (e.target === approvalsModal) closeModal(approvalsModal);
+        });
+
+        // Accounting Lines Management
+        function addAccountingLine() {
+            const container = document.getElementById('accountingLinesContainer');
+            const newLine = document.createElement('div');
+            newLine.className = 'line-item';
+            newLine.innerHTML = `
+                <select class="form-control">
+                    <option>Select Account</option>
+                    <option>Cash - MWK</option>
+                    <option>Accounts Receivable</option>
+                    <option>Inventory</option>
+                    <option>Office Equipment</option>
+                    <option>Accounts Payable</option>
+                    <option>Sales Revenue</option>
+                    <option>Cost of Goods Sold</option>
+                    <option>Office Expenses</option>
+                </select>
+                <input type="text" class="form-control" placeholder="Description">
+                <input type="number" class="form-control debit-input" placeholder="Debit (MWK)" step="0.01" oninput="updateTotals()">
+                <input type="number" class="form-control credit-input" placeholder="Credit (MWK)" step="0.01" oninput="updateTotals()">
+                <button type="button" class="btn btn-danger table-btn" onclick="removeLine(this)"><i class="fas fa-trash"></i></button>
+            `;
+            container.appendChild(newLine);
+            updateTotals();
+        }
+
+        function removeLine(button) {
+            const lineItem = button.closest('.line-item');
+            if (document.querySelectorAll('.line-item').length > 1) {
+                lineItem.remove();
+                updateTotals();
+            } else {
+                alert('At least one accounting line is required.');
+            }
+        }
+
+        function updateTotals() {
+            let totalDebit = 0;
+            let totalCredit = 0;
+            
+            document.querySelectorAll('.debit-input').forEach(input => {
+                totalDebit += parseFloat(input.value) || 0;
+            });
+            
+            document.querySelectorAll('.credit-input').forEach(input => {
+                totalCredit += parseFloat(input.value) || 0;
+            });
+            
+            document.getElementById('totalDebit').value = totalDebit.toFixed(2);
+            document.getElementById('totalCredit').value = totalCredit.toFixed(2);
+            
+            const validationMessage = document.getElementById('validationMessage');
+            if (Math.abs(totalDebit - totalCredit) > 0.01) {
+                validationMessage.style.display = 'block';
+            } else {
+                validationMessage.style.display = 'none';
+            }
+        }
+
+        // Form Submissions
+        document.getElementById('transactionForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const totalDebit = parseFloat(document.getElementById('totalDebit').value);
+            const totalCredit = parseFloat(document.getElementById('totalCredit').value);
+            
+            if (Math.abs(totalDebit - totalCredit) > 0.01) {
+                alert('Transaction cannot be saved. Debits must equal Credits.');
+                return;
+            }
+            
+            const requiresApproval = document.getElementById('requiresApproval').value;
+            if (requiresApproval === 'yes') {
+                alert('Transaction saved and sent for approval. It will be posted after approval.');
+            } else {
+                alert('Transaction saved and posted to the ledger.');
+            }
+            
+            closeModal(transactionModal);
+            // Reset form
+            document.getElementById('transactionForm').reset();
+            document.getElementById('accountingLinesContainer').innerHTML = `
+                <div class="line-item">
+                    <select class="form-control">
+                        <option>Select Account</option>
+                        <option>Cash - MWK</option>
+                        <option>Accounts Receivable</option>
+                        <option>Inventory</option>
+                        <option>Office Equipment</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Description">
+                    <input type="number" class="form-control debit-input" placeholder="Debit (MWK)" step="0.01" oninput="updateTotals()">
+                    <input type="number" class="form-control credit-input" placeholder="Credit (MWK)" step="0.01" oninput="updateTotals()">
+                    <button type="button" class="btn btn-danger table-btn" onclick="removeLine(this)"><i class="fas fa-trash"></i></button>
+                </div>
+            `;
+            updateTotals();
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const role = document.getElementById('userRole').value;
+            alert(`New user registered successfully with ${role} role. Login credentials have been sent to the provided email.`);
+            closeModal(registrationModal);
+            document.getElementById('registrationForm').reset();
+        });
+
+        document.getElementById('clientForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const clientName = document.getElementById('clientName').value;
+            const portalAccess = document.getElementById('clientPortalAccess').value;
+            
+            if (portalAccess === 'enabled') {
+                alert(`Client "${clientName}" added successfully. Client portal access has been enabled. Login details sent to client email.`);
+            } else {
+                alert(`Client "${clientName}" added successfully. Admin access only.`);
+            }
+            
+            closeModal(clientModal);
+            document.getElementById('clientForm').reset();
+        });
+
+        // Approval Actions
+        document.getElementById('approveAllBtn').addEventListener('click', () => {
+            if (confirm('Are you sure you want to approve all pending items?')) {
+                alert('All pending items have been approved.');
+                closeModal(approvalsModal);
+            }
+        });
+
+        // Add active state to clicked nav items
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
             });
         });
+
+        // Add active state to sidebar items
+        const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                sidebarLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Currency display
+        const currencyBadge = document.querySelector('.currency-badge');
+        currencyBadge.addEventListener('click', function() {
+            alert('All financial calculations in this platform are performed using Malawi Kwacha (MWK) as the reporting currency. Exchange rate features available for multi-currency transactions.');
+        });
+
+        // Initialize totals
+        updateTotals();
     </script>
 </body>
 </html>
